@@ -33,23 +33,33 @@
     }
 
     /* Hero principal */
-    header {
-      background: linear-gradient(rgba(106,27,26,0.8), rgba(106,27,26,0.8)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
-      color: var(--blanco);
-      padding: 5rem 2rem;
-      text-align: center;
-    }
+  header {
+  position: relative;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--blanco);
+  text-align: center;
+  overflow: hidden;
+}
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-    }
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('encabezado.png') center/cover no-repeat;
+  opacity: 0.3; /* controla la transparencia */
+  z-index: 1;
+  filter: brightness(0.5); /* oscurece la imagen */
+}
 
-    header p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-    }
-
+header h1,
+header p {
+  position: relative;
+  z-index: 2;
+}
     /* Secciones generales */
     section {
       padding: 3rem 1rem;
