@@ -170,20 +170,82 @@
   text-align: center;
   font-weight: bold;
   color: #6A1B1A;
-} .cotizador .boton {
-      background: #6A1B1A;
-      color: white;
-      border: none;
-      padding: 0.75rem;
-      margin: 1rem 0;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .cotizador select, .cotizador input {
-      padding: 0.5rem;
-      margin: 0.5rem;
-      border-radius: 6px;
-    }
+} 
+    /* Cotizador actualizado */
+.cotizador {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+}
+
+.cotizador h2 {
+  margin-bottom: 1rem;
+  color: var(--vino);
+  text-align: center;
+}
+
+.cotizador form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cotizador .item-cotizador {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  background: var(--gris);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.cotizador select,
+.cotizador input {
+  flex: 1 1 150px;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.cotizador .boton {
+  background: var(--vino);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cotizador .boton:hover {
+  background: #501211;
+}
+
+#resultado {
+  background: var(--rosado);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-weight: 500;
+  white-space: pre-line;
+}
+
+#nota-envio {
+  font-style: italic;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+#link-whatsapp {
+  display: none;
+  text-align: center;
+  text-decoration: none;
+}
     .accordion-perfiles {
       background-color: var(--vino);
       color: white;
@@ -501,16 +563,90 @@
   </footer>
 
   <!-- SCRIPT PARA HACER FUNCIONAR LOS DESPLEGABLES -->
-  <script>
-    const acc = document.querySelectorAll(".accordion");
-    acc.forEach(btn => {
-      btn.addEventListener("click", function () {
-        this.classList.toggle("active");
-        const panel = this.nextElementSibling;
-        panel.style.display = panel.style.display === "block" ? "none" : "block";
-      });
+ <script>
+  // Botón para desplegar perfiles
+  document.querySelector(".accordion-perfiles").addEventListener("click", function () {
+    this.classList.toggle("active");
+    const panel = document.querySelector(".panel-perfiles");
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+
+  // Botones del menú desplegable
+  const acc = document.querySelectorAll(".accordion");
+  acc.forEach(btn => {
+    btn.addEventListener("click", function () {
+      this.classList.toggle("active");
+      const panel = this.nextElementSibling;
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
     });
-  </script>
+  });
+
+  // Precios de café
+  if (typeof window.preciosCafe === 'undefined') {
+    window.preciosCafe = {
+      "Geisha - Popayán": { "125": 25000, "250": 45000, "340": 60000, "454": 79000 },
+      "Bourbon Rosado - Piendamó": { "125": 18000, "250": 32000, "340": 45000, "454": 57000 },
+      "Blend Castillo - Tabi - Piendamó": { "125": 16000, "250": 29000, "340": 38000, "454": 50000 },
+      "Castillo - Tambo": { "125": 16000, "250": 28000, "340": 36000, "454": 40000 }
+    };
+  }
+
+  // Agregar ítem al cotizador (actualizado con estilo .item-cotizador)
+  function agregarItem() {
+    const contenedor = document.getElementById("items-cotizador");
+    const div = document.createElement("div");
+    div.classList.add("item-cotizador");
+    div.innerHTML = `
+      <select class="variedad">
+        <option value="Geisha - Popayán">Geisha - Popayán</option>
+        <option value="Bourbon Rosado - Piendamó">Bourbon Rosado - Piendamó</option>
+        <option value="Blend Castillo - Tabi - Piendamó">Blend Castillo - Tabi - Piendamó</option>
+        <option value="Castillo - Tambo">Castillo - Tambo</option>
+      </select>
+      <select class="peso">
+        <option value="125">125g</option>
+        <option value="250">250g</option>
+        <option value="340">340g</option>
+        <option value="454">454g</option>
+      </select>
+      <input type="number" class="cantidad" value="1" min="1">
+      <button type="button" class="boton" onclick="this.parentElement.remove()">Quitar</button>
+    `;
+    contenedor.appendChild(div);
+  }
+
+  // Calcular total y generar enlace de WhatsApp
+  function calcularTotal() {
+    const variedades = document.querySelectorAll(".variedad");
+    const pesos = document.querySelectorAll(".peso");
+    const cantidades = document.querySelectorAll(".cantidad");
+
+    let total = 0;
+    let mensaje = "Hola, quiero pedir:\n";
+
+    for (let i = 0; i < variedades.length; i++) {
+      const variedad = variedades[i].value;
+      const peso = pesos[i].value;
+      const cantidad = parseInt(cantidades[i].value);
+      const precioUnitario = window.preciosCafe[variedad][peso];
+      const subtotal = precioUnitario * cantidad;
+      total += subtotal;
+      mensaje += `- ${cantidad} x ${variedad} (${peso}g) = $${subtotal.toLocaleString('es-CO')} COP\n`;
+    }
+
+    mensaje += `\nTotal: $${total.toLocaleString('es-CO')} COP`;
+
+    document.getElementById("resultado").textContent = mensaje;
+    const link = `https://wa.me/573135827664?text=${encodeURIComponent(mensaje)}`;
+    const btn = document.getElementById("link-whatsapp");
+    btn.href = link;
+    btn.style.display = "inline-block";
+    document.getElementById("nota-envio").style.display = "block";
+  }
+
+  // Ejecutar uno al cargar
+  agregarItem();
+</script>
 
 </body>
 </html>
