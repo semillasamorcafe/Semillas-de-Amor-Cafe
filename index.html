@@ -142,6 +142,35 @@
       text-decoration: none;
       font-weight: 500;
     }
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.card {
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.caption {
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  color: #6A1B1A;
+}
   </style>
 </head>
 
@@ -153,27 +182,32 @@
     <p>🌱 Café de origen | Popayán - Colombia</p>
   </header>
 
-  <!-- PERFILES DE CAFÉ EN GRANO -->
-  <section>
-    <h2>Perfiles de Café en Grano</h2>
-    <div class="perfil-grid">
-      <div class="perfil-cafe">
-        <h3>☕ Edición Piendamó</h3>
-        <p><strong>Blend:</strong> Castillo, Bourbon Rosado</p>
-        <p><strong>Precio:</strong> Desde $25.000</p>
-      </div>
-      <div class="perfil-cafe">
-        <h3>☕ Edición Tambo</h3>
-        <p><strong>Variedad:</strong> Castillo</p>
-        <p><strong>Precio:</strong> Desde $25.000</p>
-      </div>
-      <div class="perfil-cafe">
-        <h3>☕ Edición Popayán</h3>
-        <p><strong>Variedad:</strong> Geisha</p>
-        <p><strong>Precio:</strong> Desde $35.000</p>
-      </div>
+ <!-- CATÁLOGO DE CAFÉS ESPECIALES EN GALERÍA -->
+<section>
+  <h2>Catálogo de Cafés Especiales</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="img/catalogo.jpg" alt="Catálogo general">
+      <div class="caption">Presentación del catálogo</div>
     </div>
-  </section>
+    <div class="card">
+      <img src="img/piendamo.jpg" alt="Piendamó Blend">
+      <div class="caption">Piendamó: Blend Castillo & Tabi</div>
+    </div>
+    <div class="card">
+      <img src="img/bourbon_rosado.jpg" alt="Bourbon Rosado">
+      <div class="caption">Piendamó: Bourbon Rosado</div>
+    </div>
+    <div class="card">
+      <img src="img/tambo.jpg" alt="Edición Tambo">
+      <div class="caption">Tambo: Castillo</div>
+    </div>
+    <div class="card">
+      <img src="img/geisha.jpg" alt="Geisha Popayán">
+      <div class="caption">Popayán: Geisha</div>
+    </div>
+  </div>
+</section>
 
   <!-- MENÚ DESPLEGABLE DE CAFETERÍA -->
   <section>
