@@ -182,120 +182,144 @@
     <p>🌱 Café de origen | Popayán - Colombia</p>
   </header>
 
- <!-- CATÁLOGO DE CAFÉS ESPECIALES EN GALERÍA -->
-<section>
-  <h2>Catálogo de Cafés Especiales</h2>
-  <div class="gallery">
-    <div class="card">
-      <img src="catalogo.jpeg" alt="Catálogo general">
-      <div class="caption">Presentación del catálogo</div>
-    </div>
-    <div class="card">
-      <img src="piendamo.jpeg" alt="Piendamó Blend">
-      <div class="caption">Piendamó: Blend Castillo & Tabi</div>
-    </div>
-    <div class="card">
-      <img src="bourbon_rosado.jpeg" alt="Bourbon Rosado">
-      <div class="caption">Piendamó: Bourbon Rosado</div>
-    </div>
-    <div class="card">
-      <img src="tambo.jpeg" alt="Edición Tambo">
-      <div class="caption">Tambo: Castillo</div>
-    </div>
-    <div class="card">
-      <img src="geisha.jpeg" alt="Geisha Popayán">
-      <div class="caption">Popayán: Geisha</div>
-    </div>
-  </div>
-</section>
-
+  <!-- CATÁLOGO + Perfiles desplegable -->
   <section>
-  <h2>Perfiles de Café</h2>
-  <div class="perfil-grid">
-    <div class="perfil-cafe">
-      <h3>Geisha - Popayán</h3>
-      <p><strong>Aroma:</strong> Manzanilla, limón, miel, chocolate</p>
-      <p><strong>Acidez:</strong> Cítrica</p>
-      <p><strong>Notas de sabor:</strong> Florales, cítricos</p>
+    <h2>Catálogo de Cafés Especiales</h2>
+    <div class="gallery">
+      <div class="card">
+        <img src="catalogo.jpeg" alt="Catálogo general">
+        <div class="caption">Presentación del catálogo</div>
+      </div>
+      <div class="card">
+        <img src="piendamo.jpeg" alt="Piendamó Blend">
+        <div class="caption">Piendamó: Blend Castillo & Tabi</div>
+      </div>
+      <div class="card">
+        <img src="bourbon_rosado.jpeg" alt="Bourbon Rosado">
+        <div class="caption">Piendamó: Bourbon Rosado</div>
+      </div>
+      <div class="card">
+        <img src="tambo.jpeg" alt="Edición Tambo">
+        <div class="caption">Tambo: Castillo</div>
+      </div>
+      <div class="card">
+        <img src="geisha.jpeg" alt="Geisha Popayán">
+        <div class="caption">Popayán: Geisha</div>
+      </div>
     </div>
-    <div class="perfil-cafe">
-      <h3>Bourbon Rosado - Piendamó</h3>
-      <p><strong>Aroma:</strong> Especiado, frutos amarillos, panela</p>
-      <p><strong>Acidez:</strong> Cítrica</p>
-      <p><strong>Notas de sabor:</strong> Naranja, frutas tropicales</p>
-    </div>
-    <div class="perfil-cafe">
-      <h3>Blend Castillo - Tabi (Natural) - Piendamó</h3>
-      <p><strong>Aroma:</strong> Chocolate, cacao, maracuyá</p>
-      <p><strong>Acidez:</strong> Tartárica</p>
-      <p><strong>Notas de sabor:</strong> Licor de naranja, panela, maracuyá</p>
-    </div>
-    <div class="perfil-cafe">
-      <h3>Castillo - Tambo</h3>
-      <p><strong>Aroma:</strong> Vainilla, miel, panela, chocolate</p>
-      <p><strong>Acidez:</strong> Cítrica</p>
-      <p><strong>Notas de sabor:</strong> Panela, chocolate, vainilla</p>
-    </div>
-  </div>
-</section>
-  <!-- COTIZADOR DE CAFÉ -->
-<section id="cotizador">
-  <h2>Cotiza tu Café en Grano</h2>
-  <form onsubmit="calcularPrecio(event)" style="max-width:600px;margin:auto;">
-    <label for="tipo">Selecciona el tipo de café:</label>
-    <select id="tipo" required>
-      <option value="">-- Elige una opción --</option>
-      <option value="geisha">Geisha - Popayán</option>
-      <option value="bourbon">Bourbon Rosado - Piendamó</option>
-      <option value="blend">Blend Castillo & Tabi - Piendamó</option>
-      <option value="castillo">Castillo - Tambo</option>
-    </select><br><br>
 
-    <label for="gramos">Cantidad en gramos:</label>
-    <input type="number" id="gramos" min="50" step="50" required><br><br>
+    <button class="accordion-perfiles">Ver Perfiles de Café</button>
+    <div class="panel-perfiles">
+      <div class="perfil-grid">
+        <div class="perfil-cafe">
+          <h3>Geisha - Popayán</h3>
+          <p><strong>Aroma:</strong> Manzanilla, limón, miel, chocolate</p>
+          <p><strong>Acidez:</strong> Cítrica</p>
+          <p><strong>Notas de sabor:</strong> Florales, cítricos</p>
+        </div>
+        <div class="perfil-cafe">
+          <h3>Bourbon Rosado - Piendamó</h3>
+          <p><strong>Aroma:</strong> Especiado, frutos amarillos, panela</p>
+          <p><strong>Acidez:</strong> Cítrica</p>
+          <p><strong>Notas de sabor:</strong> Naranja, frutas tropicales</p>
+        </div>
+        <div class="perfil-cafe">
+          <h3>Blend Castillo - Tabi - Piendamó</h3>
+          <p><strong>Aroma:</strong> Chocolate, cacao, maracuyá</p>
+          <p><strong>Acidez:</strong> Tartárica</p>
+          <p><strong>Notas de sabor:</strong> Licor de naranja, panela, maracuyá</p>
+        </div>
+        <div class="perfil-cafe">
+          <h3>Castillo - Tambo</h3>
+          <p><strong>Aroma:</strong> Vainilla, miel, panela, chocolate</p>
+          <p><strong>Acidez:</strong> Cítrica</p>
+          <p><strong>Notas de sabor:</strong> Panela, chocolate, vainilla</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <label for="presentacion">Presentación:</label>
-    <select id="presentacion" required>
-      <option value="grano">En Grano</option>
-      <option value="molido">Molido</option>
-    </select><br><br>
-
-    <button type="submit">Calcular Precio</button>
-    <div id="resultado" style="margin-top:1rem;font-weight:bold;color:var(--vino);"></div>
-  </form>
-</section>
+  <!-- Cotizador de Café -->
+  <section class="cotizador">
+    <h2>Cotiza tu Pedido</h2>
+    <form id="formulario-cotizador">
+      <div id="items-cotizador"></div>
+      <button type="button" class="boton" onclick="agregarItem()">+ Agregar variedad</button>
+      <button type="button" class="boton" onclick="calcularTotal()">Calcular total</button>
+    </form>
+    <p id="resultado">Agrega al menos una variedad para ver el total estimado.</p>
+    <p id="nota-envio" style="display:none;">🚚 Este precio no incluye costos de envío.</p>
+    <a id="link-whatsapp" class="boton" target="_blank">Enviar pedido por WhatsApp</a>
+  </section>
 
 <script>
-function calcularPrecio(e) {
-  e.preventDefault();
+    document.querySelector(".accordion-perfiles").addEventListener("click", function() {
+      this.classList.toggle("active");
+      const panel = document.querySelector(".panel-perfiles");
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+    });
 
-  const tipo = document.getElementById("tipo").value;
-  const gramos = parseInt(document.getElementById("gramos").value);
-  const presentacion = document.getElementById("presentacion").value;
-  const resultado = document.getElementById("resultado");
+    if (typeof window.preciosCafe === 'undefined') {
+      window.preciosCafe = {
+        "Geisha - Popayán": { "125": 25000, "250": 45000, "340": 60000, "454": 79000 },
+        "Bourbon Rosado - Piendamó": { "125": 18000, "250": 32000, "340": 45000, "454": 57000 },
+        "Blend Castillo - Tabi - Piendamó": { "125": 16000, "250": 29000, "340": 38000, "454": 50000 },
+        "Castillo - Tambo": { "125": 16000, "250": 28000, "340": 36000, "454": 40000 }
+      };
+    }
 
-  const basePrecios = {
-    geisha: 350,
-    bourbon: 280,
-    blend: 260,
-    castillo: 250
-  };
+    function agregarItem() {
+      const contenedor = document.getElementById("items-cotizador");
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <select class="variedad">
+          <option value="Geisha - Popayán">Geisha - Popayán</option>
+          <option value="Bourbon Rosado - Piendamó">Bourbon Rosado - Piendamó</option>
+          <option value="Blend Castillo - Tabi - Piendamó">Blend Castillo - Tabi - Piendamó</option>
+          <option value="Castillo - Tambo">Castillo - Tambo</option>
+        </select>
+        <select class="peso">
+          <option value="125">125g</option>
+          <option value="250">250g</option>
+          <option value="340">340g</option>
+          <option value="454">454g</option>
+        </select>
+        <input type="number" class="cantidad" value="1" min="1">
+        <button type="button" class="boton" onclick="this.parentElement.remove()">Quitar</button>
+      `;
+      contenedor.appendChild(div);
+    }
 
-  if (!basePrecios[tipo]) {
-    resultado.textContent = "Por favor selecciona un tipo de café válido.";
-    return;
-  }
+    function calcularTotal() {
+      const variedades = document.querySelectorAll(".variedad");
+      const pesos = document.querySelectorAll(".peso");
+      const cantidades = document.querySelectorAll(".cantidad");
 
-  const precioBase = basePrecios[tipo];
-  let total = precioBase * gramos / 100;
+      let total = 0;
+      let mensaje = "Hola, quiero pedir:\n";
 
-  // Ajuste por molido
-  if (presentacion === "molido") total += 2;
+      for (let i = 0; i < variedades.length; i++) {
+        const variedad = variedades[i].value;
+        const peso = pesos[i].value;
+        const cantidad = parseInt(cantidades[i].value);
+        const precioUnitario = window.preciosCafe[variedad][peso];
+        const subtotal = precioUnitario * cantidad;
+        total += subtotal;
+        mensaje += `- ${cantidad} x ${variedad} (${peso}g) = $${subtotal.toLocaleString('es-CO')} COP\n`;
+      }
 
-  resultado.textContent = `💰 Precio estimado: $${Math.round(total).toLocaleString()} COP`;
-}
-</script>
+      mensaje += `\nTotal: $${total.toLocaleString('es-CO')} COP`;
 
+      document.getElementById("resultado").textContent = mensaje;
+      const link = `https://wa.me/573135827664?text=${encodeURIComponent(mensaje)}`;
+      const btn = document.getElementById("link-whatsapp");
+      btn.href = link;
+      btn.style.display = "inline-block";
+      document.getElementById("nota-envio").style.display = "block";
+    }
+
+    agregarItem();
+  </script>
  <!-- MENÚ DESPLEGABLE COMPLETO -->
 <section>
   <h2>Menú de Cafetería</h2>
