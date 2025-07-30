@@ -238,6 +238,63 @@
     </div>
   </div>
 </section>
+  <!-- COTIZADOR DE CAFÉ -->
+<section id="cotizador">
+  <h2>Cotiza tu Café en Grano</h2>
+  <form onsubmit="calcularPrecio(event)" style="max-width:600px;margin:auto;">
+    <label for="tipo">Selecciona el tipo de café:</label>
+    <select id="tipo" required>
+      <option value="">-- Elige una opción --</option>
+      <option value="geisha">Geisha - Popayán</option>
+      <option value="bourbon">Bourbon Rosado - Piendamó</option>
+      <option value="blend">Blend Castillo & Tabi - Piendamó</option>
+      <option value="castillo">Castillo - Tambo</option>
+    </select><br><br>
+
+    <label for="gramos">Cantidad en gramos:</label>
+    <input type="number" id="gramos" min="50" step="50" required><br><br>
+
+    <label for="presentacion">Presentación:</label>
+    <select id="presentacion" required>
+      <option value="grano">En Grano</option>
+      <option value="molido">Molido</option>
+    </select><br><br>
+
+    <button type="submit">Calcular Precio</button>
+    <div id="resultado" style="margin-top:1rem;font-weight:bold;color:var(--vino);"></div>
+  </form>
+</section>
+
+<script>
+function calcularPrecio(e) {
+  e.preventDefault();
+
+  const tipo = document.getElementById("tipo").value;
+  const gramos = parseInt(document.getElementById("gramos").value);
+  const presentacion = document.getElementById("presentacion").value;
+  const resultado = document.getElementById("resultado");
+
+  const basePrecios = {
+    geisha: 350,
+    bourbon: 280,
+    blend: 260,
+    castillo: 250
+  };
+
+  if (!basePrecios[tipo]) {
+    resultado.textContent = "Por favor selecciona un tipo de café válido.";
+    return;
+  }
+
+  const precioBase = basePrecios[tipo];
+  let total = precioBase * gramos / 100;
+
+  // Ajuste por molido
+  if (presentacion === "molido") total += 2;
+
+  resultado.textContent = `💰 Precio estimado: $${Math.round(total).toLocaleString()} COP`;
+}
+</script>
 
  <!-- MENÚ DESPLEGABLE COMPLETO -->
 <section>
