@@ -47,15 +47,10 @@ header {
 }
 
 header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
   background: url('encabezado.png') center/cover no-repeat;
-  opacity: 0.3; /* MÁS OSCURA */
-  z-index: 1;
-  filter: brightness(0.2); /* MÁS BAJA EXPOSICIÓN */
+  opacity: 0.5;              /* Antes 0.3 → ahora 0.5 para hacerlo más visible */
+  filter: brightness(0.4);   /* Antes 0.2 → ahora 0.4 para que no esté tan apagado */
 }
-
 header::after {
   content: "";
   position: absolute;
@@ -72,9 +67,9 @@ header p,
 }
 
 .logo {
-  width: 180px; /* MÁS GRANDE */
+  width: 250px;      /* Más grande */
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 header h1 {
@@ -411,7 +406,7 @@ header p {
     </div>
 
     <button class="accordion-catalogo">Ver Perfiles de Café</button>
-<div class="panel-catalogo">
+<div class="panel-catalogo" style="display: none;">
       <div class="perfil-grid">
         <div class="perfil-cafe">
           <h3>Geisha - Popayán</h3>
@@ -525,7 +520,7 @@ header p {
 <!-- MENÚ DE CAFETERÍA CON DESPLIEGUE PRINCIPAL -->
 <section>
   <button class="accordion-menu">Ver Menú de Cafetería</button>
-<div class="panel-menu">
+<div class="panel-menu" style="display: none;">
     <h2>Menú de Cafetería</h2>
 
   <!-- BEBIDAS CALIENTES -->
