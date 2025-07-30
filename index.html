@@ -33,7 +33,7 @@
     }
 
     /* Hero principal */
-/* Hero principal */
+/* HERO AJUSTADO */
 header {
   position: relative;
   height: 400px;
@@ -44,21 +44,30 @@ header {
   color: var(--blanco);
   text-align: center;
   overflow: hidden;
+  padding-top: 2rem;
 }
 
+/* Fondo visible pero elegante */
 header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: url('encabezado.png') center/cover no-repeat;
-  opacity: 0.5;              /* Antes 0.3 → ahora 0.5 para hacerlo más visible */
-  filter: brightness(0.4);   /* Antes 0.2 → ahora 0.4 para que no esté tan apagado */
+  opacity: 0.65; /* se ve la imagen mejor */
+  z-index: 1;
+  filter: brightness(0.4);
 }
+
+/* Capa vinotinto oscura encima */
 header::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* capa negra semitransparente */
+  background-color: rgba(106, 27, 26, 0.55);
   z-index: 2;
 }
 
+/* Contenido encima de la imagen */
 header h1,
 header p,
 .logo {
@@ -66,47 +75,23 @@ header p,
   z-index: 3;
 }
 
+/* LOGO más grande */
 .logo {
-  width: 250px;      /* Más grande */
+  width: 280px;
   height: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
+/* TÍTULOS más pequeños */
 header h1 {
-  font-size: 3.5rem;
+  font-size: 2.2rem;
   font-family: 'Playfair Display', serif;
-  margin-bottom: 0.5rem;
-  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.5px;
 }
 
 header p {
-  font-size: 1.3rem;
-  font-weight: 300;
-}
-
-/* capa vinotinto traslúcida encima de la imagen */
-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(106, 27, 26, 0.6); /* vinotinto con transparencia */
-  z-index: 2;
-}
-
-header h1,
-header p {
-  position: relative;
-  z-index: 3;
-}
-
-header h1 {
-  font-size: 3rem;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
 }
     /* Secciones generales */
