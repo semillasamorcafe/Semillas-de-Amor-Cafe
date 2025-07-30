@@ -564,6 +564,7 @@
 
   <!-- SCRIPT PARA HACER FUNCIONAR LOS DESPLEGABLES -->
  <script>
+document.addEventListener("DOMContentLoaded", function () {
   // Botón para desplegar perfiles
   document.querySelector(".accordion-perfiles").addEventListener("click", function () {
     this.classList.toggle("active");
@@ -580,7 +581,6 @@
       panel.style.display = panel.style.display === "block" ? "none" : "block";
     });
   });
-
   // Precios de café
   if (typeof window.preciosCafe === 'undefined') {
     window.preciosCafe = {
