@@ -33,32 +33,55 @@
     }
 
     /* Hero principal */
-  header {
+header {
   position: relative;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--blanco);
+  color: white;
   text-align: center;
   overflow: hidden;
+  font-family: 'Playfair Display', serif;
 }
 
 header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('encabezado.png') center/cover no-repeat;
-  opacity: 0.3; /* controla la transparencia */
+  background-image: url('encabezado.png');
+  background-size: cover;
+  background-position: center;
   z-index: 1;
-  filter: brightness(0.5); /* oscurece la imagen */
+  opacity: 0.6; /* hace la imagen más visible */
+  filter: brightness(0.5); /* oscurece */
+}
+
+/* capa vinotinto traslúcida encima de la imagen */
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(106, 27, 26, 0.6); /* vinotinto con transparencia */
+  z-index: 2;
 }
 
 header h1,
 header p {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+}
+
+header h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  font-weight: 300;
 }
     /* Secciones generales */
     section {
