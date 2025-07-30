@@ -33,6 +33,7 @@
     }
 
     /* Hero principal */
+/* Hero principal */
 header {
   position: relative;
   height: 400px;
@@ -40,22 +41,42 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--blanco);
   text-align: center;
   overflow: hidden;
-  font-family: 'Playfair Display', serif;
 }
 
 header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('encabezado.png');
-  background-size: cover;
-  background-position: center;
+  background: url('encabezado.png') center/cover no-repeat;
+  opacity: 0.6; /* más transparente */
   z-index: 1;
-  opacity: 0.6; /* hace la imagen más visible */
-  filter: brightness(0.5); /* oscurece */
+  filter: brightness(0.3); /* más oscuro */
+}
+
+header h1,
+header p,
+.logo {
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.5rem;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 /* capa vinotinto traslúcida encima de la imagen */
@@ -320,10 +341,12 @@ header p {
 <body>
 
   <!-- HERO con título y lema -->
-  <header>
-    <h1>Semilla de Amor Café</h1>
-    <p>🌱 Café de origen | Popayán - Colombia</p>
-  </header>
+ <!-- HERO con logo, título y lema -->
+<header>
+  <img src="logo.png" alt="Logo Semilla de Amor Café" class="logo">
+  <h1>Semilla de Amor Café</h1>
+  <p>🌱 Café de origen | Popayán - Colombia</p>
+</header>
 
   <!-- CATÁLOGO + Perfiles desplegable -->
   <section>
@@ -351,8 +374,8 @@ header p {
       </div>
     </div>
 
-    <button class="accordion-perfiles">Ver Perfiles de Café</button>
-    <div class="panel-perfiles">
+    <button class="accordion-catalogo">Ver Perfiles de Café</button>
+<div class="panel-catalogo">
       <div class="perfil-grid">
         <div class="perfil-cafe">
           <h3>Geisha - Popayán</h3>
@@ -465,8 +488,8 @@ header p {
   </script>
 <!-- MENÚ DE CAFETERÍA CON DESPLIEGUE PRINCIPAL -->
 <section>
-  <button class="accordion-perfiles">Ver Menú de Cafetería</button>
-  <div class="panel-perfiles">
+  <button class="accordion-menu">Ver Menú de Cafetería</button>
+<div class="panel-menu">
     <h2>Menú de Cafetería</h2>
 
   <!-- BEBIDAS CALIENTES -->
@@ -600,14 +623,21 @@ header p {
   <!-- SCRIPT PARA HACER FUNCIONAR LOS DESPLEGABLES -->
  <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Botón para desplegar perfiles
-  document.querySelector(".accordion-perfiles").addEventListener("click", function () {
+  // Mostrar/Ocultar catálogo de cafés
+  document.querySelector(".accordion-catalogo").addEventListener("click", function () {
     this.classList.toggle("active");
-    const panel = document.querySelector(".panel-perfiles");
+    const panel = document.querySelector(".panel-catalogo");
     panel.style.display = panel.style.display === "block" ? "none" : "block";
   });
 
-  // Botones del menú desplegable
+  // Mostrar/Ocultar menú de cafetería
+  document.querySelector(".accordion-menu").addEventListener("click", function () {
+    this.classList.toggle("active");
+    const panel = document.querySelector(".panel-menu");
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+
+  // Submenús internos (Bebidas Calientes, Capuchinos, etc.)
   const acc = document.querySelectorAll(".accordion");
   acc.forEach(btn => {
     btn.addEventListener("click", function () {
@@ -616,7 +646,8 @@ document.addEventListener("DOMContentLoaded", function () {
       panel.style.display = panel.style.display === "block" ? "none" : "block";
     });
   });
-  // Precios de café
+
+  // Cotizador
   if (typeof window.preciosCafe === 'undefined') {
     window.preciosCafe = {
       "Geisha - Popayán": { "125": 25000, "250": 45000, "340": 60000, "454": 79000 },
@@ -626,8 +657,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  // Agregar ítem al cotizador (actualizado con estilo .item-cotizador)
-  function agregarItem() {
+  window.agregarItem = function () {
     const contenedor = document.getElementById("items-cotizador");
     const div = document.createElement("div");
     div.classList.add("item-cotizador");
@@ -650,8 +680,7 @@ document.addEventListener("DOMContentLoaded", function () {
     contenedor.appendChild(div);
   }
 
-  // Calcular total y generar enlace de WhatsApp
-  function calcularTotal() {
+  window.calcularTotal = function () {
     const variedades = document.querySelectorAll(".variedad");
     const pesos = document.querySelectorAll(".peso");
     const cantidades = document.querySelectorAll(".cantidad");
@@ -679,8 +708,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("nota-envio").style.display = "block";
   }
 
-  // Ejecutar uno al cargar
-  agregarItem();
+  agregarItem(); // Ejecuta uno al cargar
+});
 </script>
 
 </body>
