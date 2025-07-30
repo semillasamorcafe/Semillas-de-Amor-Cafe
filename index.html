@@ -51,32 +51,42 @@ header::before {
   position: absolute;
   inset: 0;
   background: url('encabezado.png') center/cover no-repeat;
-  opacity: 0.6; /* más transparente */
+  opacity: 0.3; /* MÁS OSCURA */
   z-index: 1;
-  filter: brightness(0.3); /* más oscuro */
+  filter: brightness(0.2); /* MÁS BAJA EXPOSICIÓN */
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* capa negra semitransparente */
+  z-index: 2;
 }
 
 header h1,
 header p,
 .logo {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+}
+
+.logo {
+  width: 180px; /* MÁS GRANDE */
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 header h1 {
   font-size: 3.5rem;
   font-family: 'Playfair Display', serif;
   margin-bottom: 0.5rem;
+  letter-spacing: 1px;
 }
 
 header p {
-  font-size: 1.5rem;
-}
-
-.logo {
-  width: 140px;
-  height: auto;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 300;
 }
 
 /* capa vinotinto traslúcida encima de la imagen */
@@ -335,6 +345,32 @@ header p {
       margin-bottom: 0.5rem;
       color: var(--vino);
     }
+
+    .accordion-catalogo,
+.accordion-menu {
+  background-color: var(--vino);
+  color: white;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 2rem 0 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.accordion-catalogo:hover,
+.accordion-menu:hover {
+  background-color: #501211;
+  transform: scale(1.02);
+}
   </style>
 </head>
 
