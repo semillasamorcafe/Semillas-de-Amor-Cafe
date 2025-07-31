@@ -351,6 +351,50 @@ header p {
   background-color: #501211;
   transform: scale(1.02);
 }
+    .carousel-container {
+  position: relative;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.carousel-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 1rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(106, 27, 26, 0.7);
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(106, 27, 26, 1);
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
   </style>
 </head>
 
@@ -725,7 +769,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   agregarItem(); // Primera fila al iniciar
 });
-</script>
+  // Galería de imágenes
+const imagenesGaleria = [
+  "cafe_granos_caneca.jpg",
+  "cafe_granos_secado.jpg",
+  "cafe_paquete_mano.jpg",
+  "fachada_cafeteria.jpg",
+  "frappe_chocolate_1.jpg",
+  "frappe_chocolate_2.jpg",
+  "metodo_chemex_cafe.jpg"
+];
+let indiceActual = 0;
 
+window.cambiarImagen = function (direccion) {
+  indiceActual += direccion;
+  if (indiceActual < 0) indiceActual = imagenesGaleria.length - 1;
+  if (indiceActual >= imagenesGaleria.length) indiceActual = 0;
+  document.getElementById("imagenCarrusel").src = imagenesGaleria[indiceActual];
+};
+
+// botón galería desplegable
+const botonGaleria = document.getElementById("btnGaleria");
+const panelGaleria = document.getElementById("galeriaPanel");
+botonGaleria?.addEventListener("click", function () {
+  panelGaleria.style.display = panelGaleria.style.display === "block" ? "none" : "block";
+});
+</script>
+<!-- GALERÍA DE FOTOS -->
+<section>
+  <button class="accordion" id="btnGaleria">📸 Galería de Fotos</button>
+  <div class="panel" id="galeriaPanel" style="display: block;">
+    <div class="carousel-container">
+      <button class="prev" onclick="cambiarImagen(-1)">&#10094;</button>
+      <img id="imagenCarrusel" src="cafe_granos_caneca.jpg" alt="Galería" class="carousel-img">
+      <button class="next" onclick="cambiarImagen(1)">&#10095;</button>
+    </div>
+  </div>
+</section>
 </body>
 </html>
