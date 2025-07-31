@@ -657,84 +657,96 @@ if (typeof window.preciosCafe === 'undefined') {
 </footer>
 
   <!-- SCRIPT PARA HACER FUNCIONAR LOS DESPLEGABLES -->
- <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
   // Mostrar/Ocultar catálogo de cafés
-  document.querySelector(".accordion-catalogo").addEventListener("click", function () {
+  const botonCatalogo = document.querySelector(".accordion-catalogo");
+  const panelCatalogo = document.querySelector(".panel-catalogo");
+  botonCatalogo.addEventListener("click", function () {
     this.classList.toggle("active");
-    const panel = document.querySelector(".panel-catalogo");
-    panel.style.display = panel.style.display === "block" ? "none" : "block";
+    panelCatalogo.style.display = panelCatalogo.style.display === "block" ? "none" : "block";
   });
 
   // Mostrar/Ocultar menú de cafetería
-  document.querySelector(".accordion-menu").addEventListener("click", function () {
+  const botonMenu = document.querySelector(".accordion-menu");
+  const panelMenu = document.querySelector(".panel-menu");
+  botonMenu.addEventListener("click", function () {
     this.classList.toggle("active");
-    const panel = document.querySelector(".panel-menu");
-    panel.style.display = panel.style.display === "block" ? "none" : "block";
+    panelMenu.style.display = panelMenu.style.display === "block" ? "none" : "block";
   });
 
-  // Submenús internos (Bebidas Calientes, Capuchinos, etc.)
-  const acc = document.querySelectorAll(".accordion");
-  acc.forEach(btn => {
-    btn.addEventListener("click", function () {
+  // Submenús internos (como Bebidas Calientes, Capuchinos...)
+  const botonesInternos = document.querySelectorAll(".accordion");
+  botonesInternos.forEach(boton => {
+    boton.addEventListener("click", function () {
       this.classList.toggle("active");
       const panel = this.nextElementSibling;
       panel.style.display = panel.style.display === "block" ? "none" : "block";
     });
   });
 
-  // Cotizador
-  // Cotizador actualizado con nuevos precios y pesos disponibles
-if (typeof window.preciosCafe === 'undefined') {
-  window.preciosCafe = {
-    "Geisha - Popayán": {
-      "250": 50000
-    },
-    "Bourbon Rosado - Piendamó": {
-      "250": 32000,
-      "350": 52000,
-      "500": 62000
-    },
-    "Blend Castillo - Tabi - Piendamó": {
-      "250": 33000,
-      "350": 55000,
-      "500": 65000
-    },
-    "Castillo - Tambo": {
-      "250": 22000,
-      "350": 30000,
-      "500": 36000
-    }
-  };
-}
-
-// Al agregar variedad
-window.agregarItem = function () {
-  const contenedor = document.getElementById("items-cotizador");
-  const div = document.createElement("div");
-  div.classList.add("item-cotizador");
-  div.innerHTML = `
-    <select class="variedad">
-      <option value="Geisha - Popayán">Geisha - Popayán</option>
-      <option value="Bourbon Rosado - Piendamó">Bourbon Rosado - Piendamó</option>
-      <option value="Blend Castillo - Tabi - Piendamó">Blend Castillo - Tabi - Piendamó</option>
-      <option value="Castillo - Tambo">Castillo - Tambo</option>
-    </select>
-    <select class="peso">
-      <option value="250">250g</option>
-      <option value="350">350g</option>
-      <option value="500">500g</option>
-    </select>
-    <input type="number" class="cantidad" value="1" min="1">
-    <button type="button" class="boton" onclick="this.parentElement.remove()">Quitar</button>
-  `;
-  contenedor.appendChild(div);
-};
+  // === Cotizador ===
+  if (typeof window.preciosCafe === 'undefined') {
+    window.preciosCafe = {
+      "Geisha - Popayán": { "250": 50000 },
+      "Bourbon Rosado - Piendamó": { "250": 32000, "350": 52000, "500": 62000 },
+      "Blend Castillo - Tabi - Piendamó": { "250": 33000, "350": 55000, "500": 65000 },
+      "Castillo - Tambo": { "250": 22000, "350": 30000, "500": 36000 }
+    };
   }
+
+  window.agregarItem = function () {
+    const contenedor = document.getElementById("items-cotizador");
+    const div = document.createElement("div");
+    div.classList.add("item-cotizador");
+    div.innerHTML = `
+      <select class="variedad">
+        <option value="Geisha - Popayán">Geisha - Popayán</option>
+        <option value="Bourbon Rosado - Piendamó">Bourbon Rosado - Piendamó</option>
+        <option value="Blend Castillo - Tabi - Piendamó">Blend Castillo - Tabi - Piendamó</option>
+        <option value="Castillo - Tambo">Castillo - Tambo</option>
+      </select>
+      <select class="peso">
+        <option value="250">250g</option>
+        <option value="350">350g</option>
+        <option value="500">500g</option>
+      </select>
+      <input type="number" class="cantidad" value="1" min="1">
+      <button type="button" class="boton" onclick="this.parentElement.remove()">Quitar</button>
+    `;
+    contenedor.appendChild(div);
+  };
+
+  window.calcularTotal = function () {
+    const variedades = document.querySelectorAll(".variedad");
+    const pesos = document.querySelectorAll(".peso");
+    const cantidades = document.querySelectorAll(".cantidad");
+
+    let total = 0;
+    let mensaje = "Hola, quiero pedir:\n";
+
+    for (let i = 0; i < variedades.length; i++) {
+      const variedad = variedades[i].value;
+      const peso = pesos[i].value;
+      const cantidad = parseInt(cantidades[i].value);
+      const precioUnitario = window.preciosCafe[variedad][peso];
+      const subtotal = precioUnitario * cantidad;
+      total += subtotal;
+      mensaje += `- ${cantidad} x ${variedad} (${peso}g) = $${subtotal.toLocaleString('es-CO')} COP\n`;
+    }
+
+    mensaje += `\nTotal: $${total.toLocaleString('es-CO')} COP`;
+
+    document.getElementById("resultado").textContent = mensaje;
+    const link = `https://wa.me/573135827664?text=${encodeURIComponent(mensaje)}`;
+    const btn = document.getElementById("link-whatsapp");
+    btn.href = link;
+    btn.style.display = "inline-block";
+    document.getElementById("nota-envio").style.display = "block";
+  };
 
   agregarItem(); // Ejecuta uno al cargar
 });
-</script>
 
 </body>
 </html>
