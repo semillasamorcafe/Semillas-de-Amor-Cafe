@@ -435,14 +435,7 @@ header p {
 
 <!-- Script para cotizador y catálogo -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Mostrar/Ocultar catálogo
-    const botonCatalogo = document.querySelector(".accordion-catalogo");
-    const panelCatalogo = document.querySelector(".panel-catalogo");
-    botonCatalogo.addEventListener("click", function () {
-      this.classList.toggle("active");
-      panelCatalogo.style.display = panelCatalogo.style.display === "block" ? "none" : "block";
-    });
+
 
     // Precios por variedad y presentación
     if (typeof window.preciosCafe === 'undefined') {
