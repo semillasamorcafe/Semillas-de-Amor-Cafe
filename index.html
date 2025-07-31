@@ -651,7 +651,19 @@ header p {
     </div>
   </div>
 </section>
-
+<!-- GALERÍA DE FOTOS -->
+<section>
+  <button class="accordion" id="btnGaleria">📸 Galería de Fotos</button>
+  <div class="panel" id="galeriaPanel" style="display: block;">
+    <div class="carousel-container">
+      <button class="prev" onclick="cambiarImagen(-1)">&#10094;</button>
+      <img id="imagenCarrusel" src="cafe_granos_caneca.jpg" alt="Galería" class="carousel-img">
+      <button class="next" onclick="cambiarImagen(1)">&#10095;</button>
+    </div>
+  </div>
+</section>
+</body>
+</html>
   <!-- MAPA DE UBICACIÓN -->
   <!-- MAPA DE UBICACIÓN CORRECTO -->
 <section>
@@ -795,16 +807,4 @@ botonGaleria?.addEventListener("click", function () {
   panelGaleria.style.display = panelGaleria.style.display === "block" ? "none" : "block";
 });
 </script>
-<!-- GALERÍA DE FOTOS -->
-<section>
-  <button class="accordion" id="btnGaleria">📸 Galería de Fotos</button>
-  <div class="panel" id="galeriaPanel" style="display: block;">
-    <div class="carousel-container">
-      <button class="prev" onclick="cambiarImagen(-1)">&#10094;</button>
-      <img id="imagenCarrusel" src="cafe_granos_caneca.jpg" alt="Galería" class="carousel-img">
-      <button class="next" onclick="cambiarImagen(1)">&#10095;</button>
-    </div>
-  </div>
-</section>
-</body>
-</html>
+
