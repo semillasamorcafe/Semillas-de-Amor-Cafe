@@ -356,131 +356,129 @@ header p {
 
 <body>
 
-  <!-- HERO con título y lema -->
- <!-- HERO con logo, título y lema -->
+<!-- HERO con logo, título y lema -->
 <header>
   <img src="logo.png" alt="Logo Semilla de Amor Café" class="logo">
   <h1>Semilla de Amor Café</h1>
   <p>🌱 Café de origen | Popayán - Colombia</p>
 </header>
 
-  <!-- CATÁLOGO + Perfiles desplegable -->
-  <section>
-    <h2>Catálogo de Cafés Especiales</h2>
-    <div class="gallery">
-      <div class="card">
-        <img src="catalogo.jpeg" alt="Catálogo general">
-        <div class="caption">Presentación del catálogo</div>
+<!-- CATÁLOGO + Perfiles desplegable -->
+<section>
+  <h2>Catálogo de Cafés Especiales</h2>
+  <div class="gallery">
+    <div class="card">
+      <img src="catalogo.jpeg" alt="Catálogo general">
+      <div class="caption">Presentación del catálogo</div>
+    </div>
+    <div class="card">
+      <img src="piendamo.jpeg" alt="Piendamó Blend">
+      <div class="caption">Piendamó: Blend Castillo & Tabi</div>
+    </div>
+    <div class="card">
+      <img src="bourbon_rosado.jpeg" alt="Bourbon Rosado">
+      <div class="caption">Piendamó: Bourbon Rosado</div>
+    </div>
+    <div class="card">
+      <img src="tambo.jpeg" alt="Edición Tambo">
+      <div class="caption">Tambo: Castillo</div>
+    </div>
+    <div class="card">
+      <img src="geisha.jpeg" alt="Geisha Popayán">
+      <div class="caption">Popayán: Geisha</div>
+    </div>
+  </div>
+
+  <button class="accordion-catalogo">☕️🤎VER PERFILES DE CAFÉ🤎☕️</button>
+  <div class="panel-catalogo" style="display: none;">
+    <div class="perfil-grid">
+      <div class="perfil-cafe">
+        <h3>Geisha - Popayán</h3>
+        <p><strong>Aroma:</strong> Manzanilla, limón, miel, chocolate</p>
+        <p><strong>Acidez:</strong> Cítrica</p>
+        <p><strong>Notas de sabor:</strong> Florales, cítricos</p>
       </div>
-      <div class="card">
-        <img src="piendamo.jpeg" alt="Piendamó Blend">
-        <div class="caption">Piendamó: Blend Castillo & Tabi</div>
+      <div class="perfil-cafe">
+        <h3>Bourbon Rosado - Piendamó</h3>
+        <p><strong>Aroma:</strong> Especiado, frutos amarillos, panela</p>
+        <p><strong>Acidez:</strong> Cítrica</p>
+        <p><strong>Notas de sabor:</strong> Naranja, frutas tropicales</p>
       </div>
-      <div class="card">
-        <img src="bourbon_rosado.jpeg" alt="Bourbon Rosado">
-        <div class="caption">Piendamó: Bourbon Rosado</div>
+      <div class="perfil-cafe">
+        <h3>Blend Castillo - Tabi - Piendamó</h3>
+        <p><strong>Aroma:</strong> Chocolate, cacao, maracuyá</p>
+        <p><strong>Acidez:</strong> Tartárica</p>
+        <p><strong>Notas de sabor:</strong> Licor de naranja, panela, maracuyá</p>
       </div>
-      <div class="card">
-        <img src="tambo.jpeg" alt="Edición Tambo">
-        <div class="caption">Tambo: Castillo</div>
-      </div>
-      <div class="card">
-        <img src="geisha.jpeg" alt="Geisha Popayán">
-        <div class="caption">Popayán: Geisha</div>
+      <div class="perfil-cafe">
+        <h3>Castillo - Tambo</h3>
+        <p><strong>Aroma:</strong> Vainilla, miel, panela, chocolate</p>
+        <p><strong>Acidez:</strong> Cítrica</p>
+        <p><strong>Notas de sabor:</strong> Panela, chocolate, vainilla</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <button class="accordion-catalogo">☕️🤎VER PERFILES DE CAFÉ🤎☕️</button>
-<div class="panel-catalogo" style="display: none;">
-      <div class="perfil-grid">
-        <div class="perfil-cafe">
-          <h3>Geisha - Popayán</h3>
-          <p><strong>Aroma:</strong> Manzanilla, limón, miel, chocolate</p>
-          <p><strong>Acidez:</strong> Cítrica</p>
-          <p><strong>Notas de sabor:</strong> Florales, cítricos</p>
-        </div>
-        <div class="perfil-cafe">
-          <h3>Bourbon Rosado - Piendamó</h3>
-          <p><strong>Aroma:</strong> Especiado, frutos amarillos, panela</p>
-          <p><strong>Acidez:</strong> Cítrica</p>
-          <p><strong>Notas de sabor:</strong> Naranja, frutas tropicales</p>
-        </div>
-        <div class="perfil-cafe">
-          <h3>Blend Castillo - Tabi - Piendamó</h3>
-          <p><strong>Aroma:</strong> Chocolate, cacao, maracuyá</p>
-          <p><strong>Acidez:</strong> Tartárica</p>
-          <p><strong>Notas de sabor:</strong> Licor de naranja, panela, maracuyá</p>
-        </div>
-        <div class="perfil-cafe">
-          <h3>Castillo - Tambo</h3>
-          <p><strong>Aroma:</strong> Vainilla, miel, panela, chocolate</p>
-          <p><strong>Acidez:</strong> Cítrica</p>
-          <p><strong>Notas de sabor:</strong> Panela, chocolate, vainilla</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Cotizador de Café -->
+<section class="cotizador">
+  <h2>🛒Haz tu Pedido🛒</h2>
+  <form id="formulario-cotizador">
+    <div id="items-cotizador"></div>
+    <button type="button" class="boton" onclick="agregarItem()">+ Agregar variedad</button>
+    <button type="button" class="boton" onclick="calcularTotal()">Calcular total</button>
+  </form>
+  <p id="resultado">Agrega al menos una variedad para ver el total estimado.</p>
+  <p id="nota-envio" style="display:none;">🚚 Este precio no incluye costos de envío.</p>
+  <a id="link-whatsapp" class="boton" target="_blank">Enviar pedido por WhatsApp</a>
+</section>
 
-  <!-- Cotizador de Café -->
-  <section class="cotizador">
-    <h2>🛒Haz tu Pedido🛒</h2>
-    <form id="formulario-cotizador">
-      <div id="items-cotizador"></div>
-      <button type="button" class="boton" onclick="agregarItem()">+ Agregar variedad</button>
-      <button type="button" class="boton" onclick="calcularTotal()">Calcular total</button>
-    </form>
-    <p id="resultado">Agrega al menos una variedad para ver el total estimado.</p>
-    <p id="nota-envio" style="display:none;">🚚 Este precio no incluye costos de envío.</p>
-    <a id="link-whatsapp" class="boton" target="_blank">Enviar pedido por WhatsApp</a>
-  </section>
+<!-- Script para cotizador y catálogo -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Mostrar/Ocultar catálogo
+    const botonCatalogo = document.querySelector(".accordion-catalogo");
+    const panelCatalogo = document.querySelector(".panel-catalogo");
+    botonCatalogo.addEventListener("click", function () {
+      this.classList.toggle("active");
+      panelCatalogo.style.display = panelCatalogo.style.display === "block" ? "none" : "block";
+    });
 
+    // Precios por variedad y presentación
+    if (typeof window.preciosCafe === 'undefined') {
+      window.preciosCafe = {
+        "Geisha - Popayán": { "250": 50000 },
+        "Bourbon Rosado - Piendamó": { "250": 32000, "350": 52000, "500": 62000 },
+        "Blend Castillo - Tabi - Piendamó": { "250": 33000, "350": 55000, "500": 65000 },
+        "Castillo - Tambo": { "250": 22000, "350": 30000, "500": 36000 }
+      };
+    }
 
-if (typeof window.preciosCafe === 'undefined') {
-    window.preciosCafe = {
-      "Geisha - Popayán": {
-        "250": 50000
-      },
-      "Bourbon Rosado - Piendamó": {
-        "250": 32000,
-        "350": 52000,
-        "500": 62000
-      },
-      "Blend Castillo - Tabi - Piendamó": {
-        "250": 33000,
-        "350": 55000,
-        "500": 65000
-      },
-      "Castillo - Tambo": {
-        "250": 22000,
-        "350": 30000,
-        "500": 36000
-      }
+    // Agregar item al formulario
+    window.agregarItem = function () {
+      const contenedor = document.getElementById("items-cotizador");
+      const div = document.createElement("div");
+      div.classList.add("item-cotizador");
+      div.innerHTML = `
+        <select class="variedad">
+          <option value="Geisha - Popayán">Geisha - Popayán</option>
+          <option value="Bourbon Rosado - Piendamó">Bourbon Rosado - Piendamó</option>
+          <option value="Blend Castillo - Tabi - Piendamó">Blend Castillo - Tabi - Piendamó</option>
+          <option value="Castillo - Tambo">Castillo - Tambo</option>
+        </select>
+        <select class="peso">
+          <option value="250">250g</option>
+          <option value="350">350g</option>
+          <option value="500">500g</option>
+        </select>
+        <input type="number" class="cantidad" value="1" min="1">
+        <button type="button" class="boton" onclick="this.parentElement.remove()">Quitar</button>
+      `;
+      contenedor.appendChild(div);
     };
-  }
 
-  function agregarItem() {
-    const contenedor = document.getElementById("items-cotizador");
-    const div = document.createElement("div");
-    div.classList.add("item-cotizador");
-    div.innerHTML = `
-      <select class="variedad">
-        <option value="Geisha - Popayán">Geisha - Popayán</option>
-        <option value="Bourbon Rosado - Piendamó">Bourbon Rosado - Piendamó</option>
-        <option value="Blend Castillo - Tabi - Piendamó">Blend Castillo - Tabi - Piendamó</option>
-        <option value="Castillo - Tambo">Castillo - Tambo</option>
-      </select>
-      <select class="peso">
-        <option value="250">250g</option>
-        <option value="350">350g</option>
-        <option value="500">500g</option>
-      </select>
-      <input type="number" class="cantidad" value="1" min="1">
-      <button type="button" class="boton" onclick="this.parentElement.remove()">Quitar</button>
-    `;
-    contenedor.appendChild(div);
-  }
-
-    function calcularTotal() {
+    // Calcular total del pedido
+    window.calcularTotal = function () {
       const variedades = document.querySelectorAll(".variedad");
       const pesos = document.querySelectorAll(".peso");
       const cantidades = document.querySelectorAll(".cantidad");
@@ -506,121 +504,114 @@ if (typeof window.preciosCafe === 'undefined') {
       btn.href = link;
       btn.style.display = "inline-block";
       document.getElementById("nota-envio").style.display = "block";
-    }
+    };
 
+    // Agrega una fila inicial al cargar
     agregarItem();
-  </script>
+  });
+</script>
 <!-- MENÚ DE CAFETERÍA CON DESPLIEGUE PRINCIPAL -->
 <section>
   <button class="accordion-menu">➡️VER MENÚ DE CAFETERÍA⬅️</button>
-<div class="panel-menu" style="display: none;">
+  <div class="panel-menu" style="display: none;">
     <h2>Menú de Cafetería</h2>
 
-  <!-- BEBIDAS CALIENTES -->
-  <button class="accordion">Bebidas Calientes</button>
-  <div class="panel">
-    <div class="item">Café Negro <span>$4.000</span></div>
-    <div class="item">Café con Leche <span>$5.500</span></div>
-    <div class="item">Café Pinado <span>$5.500</span></div>
-    <div class="item">Tinto Cauca <span>$5.000</span></div>
-    <div class="item">Espresso Sencillo <span>$8.000</span></div>
-    <div class="item">Espresso Doble <span>$9.000</span></div>
-  </div>
+    <!-- Submenús desplegables -->
+    <button class="accordion">Bebidas Calientes</button>
+    <div class="panel">
+      <div class="item">Café Negro <span>$4.000</span></div>
+      <div class="item">Café con Leche <span>$5.500</span></div>
+      <div class="item">Café Pinado <span>$5.500</span></div>
+      <div class="item">Tinto Cauca <span>$5.000</span></div>
+      <div class="item">Espresso Sencillo <span>$8.000</span></div>
+      <div class="item">Espresso Doble <span>$9.000</span></div>
+    </div>
 
-  <!-- CAFÉ CON LICOR -->
-  <button class="accordion">Café con Licor</button>
-  <div class="panel">
-    <div class="item">Carajillo <span>$12.000</span></div>
-    <div class="item">Affogato Baileys <span>$15.000</span></div>
-    <div class="item">Irlandés <span>$16.000</span></div>
-  </div>
+    <button class="accordion">Café con Licor</button>
+    <div class="panel">
+      <div class="item">Carajillo <span>$12.000</span></div>
+      <div class="item">Affogato Baileys <span>$15.000</span></div>
+      <div class="item">Irlandés <span>$16.000</span></div>
+    </div>
 
-  <!-- AMERICANOS -->
-  <button class="accordion">Americanos</button>
-  <div class="panel">
-    <div class="item">Americano <span>$6.000</span></div>
-    <div class="item">Americano Especial <span>$9.000</span></div>
-  </div>
+    <button class="accordion">Americanos</button>
+    <div class="panel">
+      <div class="item">Americano <span>$6.000</span></div>
+      <div class="item">Americano Especial <span>$9.000</span></div>
+    </div>
 
-  <!-- CAFÉS FILTRADOS -->
-  <button class="accordion">Cafés Filtrados</button>
-  <div class="panel">
-    <div class="item">Prensa Francesa <span>$7.000</span></div>
-    <div class="item">V60 <span>$10.000</span></div>
-    <div class="item">Aeropress <span>$10.000</span></div>
-    <div class="item">Chemex <span>$21.000</span></div>
-    <div class="item">Sifón Japonés <span>$21.000</span></div>
-  </div>
+    <button class="accordion">Cafés Filtrados</button>
+    <div class="panel">
+      <div class="item">Prensa Francesa <span>$7.000</span></div>
+      <div class="item">V60 <span>$10.000</span></div>
+      <div class="item">Aeropress <span>$10.000</span></div>
+      <div class="item">Chemex <span>$21.000</span></div>
+      <div class="item">Sifón Japonés <span>$21.000</span></div>
+    </div>
 
-  <!-- CAPUCHINOS -->
-  <button class="accordion">Capuchinos</button>
-  <div class="panel">
-    <div class="item">Tradicional <span>$8.000</span></div>
-    <div class="item">Flat White <span>$10.000</span></div>
-    <div class="item">Mocachino <span>$9.000</span></div>
-    <div class="item">Capuchino Vainilla <span>$9.500</span></div>
-    <div class="item">Capuchino Semilla de Amor <span>$9.500</span></div>
-    <div class="item">Capuchino Avellana <span>$9.500</span></div>
-    <div class="item">Capuchino Nucita <span>$10.500</span></div>
-    <div class="item">Capuchino Especial <span>$13.000</span></div>
-    <div class="item">Capuchino Baileys <span>$14.000</span></div>
-  </div>
+    <button class="accordion">Capuchinos</button>
+    <div class="panel">
+      <div class="item">Tradicional <span>$8.000</span></div>
+      <div class="item">Flat White <span>$10.000</span></div>
+      <div class="item">Mocachino <span>$9.000</span></div>
+      <div class="item">Capuchino Vainilla <span>$9.500</span></div>
+      <div class="item">Capuchino Semilla de Amor <span>$9.500</span></div>
+      <div class="item">Capuchino Avellana <span>$9.500</span></div>
+      <div class="item">Capuchino Nucita <span>$10.500</span></div>
+      <div class="item">Capuchino Especial <span>$13.000</span></div>
+      <div class="item">Capuchino Baileys <span>$14.000</span></div>
+    </div>
 
-  <!-- BEBIDAS SIN CAFÉ -->
-  <button class="accordion">Bebidas sin Café</button>
-  <div class="panel">
-    <div class="item">Infusión Hierbas Aromáticas <span>$5.000</span></div>
-    <div class="item">Infusión de Cáscara de Café <span>$5.000</span></div>
-    <div class="item">Infusión de Frutas <span>$9.500</span></div>
-    <div class="item">Milo Caliente <span>$8.000</span></div>
-    <div class="item">Chocolate Caliente <span>$8.000</span></div>
-    <div class="item">Agua Panela <span>$7.500</span></div>
-  </div>
+    <button class="accordion">Bebidas sin Café</button>
+    <div class="panel">
+      <div class="item">Infusión Hierbas Aromáticas <span>$5.000</span></div>
+      <div class="item">Infusión de Cáscara de Café <span>$5.000</span></div>
+      <div class="item">Infusión de Frutas <span>$9.500</span></div>
+      <div class="item">Milo Caliente <span>$8.000</span></div>
+      <div class="item">Chocolate Caliente <span>$8.000</span></div>
+      <div class="item">Agua Panela <span>$7.500</span></div>
+    </div>
 
-  <!-- LATTES -->
-  <button class="accordion">Lattes</button>
-  <div class="panel">
-    <div class="item">Latte <span>$8.000</span></div>
-    <div class="item">Latte Semilla de Amor <span>$8.500</span></div>
-  </div>
+    <button class="accordion">Lattes</button>
+    <div class="panel">
+      <div class="item">Latte <span>$8.000</span></div>
+      <div class="item">Latte Semilla de Amor <span>$8.500</span></div>
+    </div>
 
-  <!-- GRANIZADOS -->
-  <button class="accordion">Granizados</button>
-  <div class="panel">
-    <div class="item">Semilla de Amor <span>$13.000</span></div>
-    <div class="item">Arequipe <span>$15.500</span></div>
-    <div class="item">Cherry <span>$17.500</span></div>
-    <div class="item">Baileys <span>$19.500</span></div>
-  </div>
+    <button class="accordion">Granizados</button>
+    <div class="panel">
+      <div class="item">Semilla de Amor <span>$13.000</span></div>
+      <div class="item">Arequipe <span>$15.500</span></div>
+      <div class="item">Cherry <span>$17.500</span></div>
+      <div class="item">Baileys <span>$19.500</span></div>
+    </div>
 
-  <!-- MALTEADAS -->
-  <button class="accordion">Malteadas</button>
-  <div class="panel">
-    <div class="item">Malteada de Café <span>$15.500</span></div>
-    <div class="item">Malteada de Café Choco Pasión <span>$16.000</span></div>
-    <div class="item">Malteada de Oreo <span>$17.000</span></div>
-    <div class="item">Ice Latté <span>$16.000</span></div>
-  </div>
+    <button class="accordion">Malteadas</button>
+    <div class="panel">
+      <div class="item">Malteada de Café <span>$15.500</span></div>
+      <div class="item">Malteada de Café Choco Pasión <span>$16.000</span></div>
+      <div class="item">Malteada de Oreo <span>$17.000</span></div>
+      <div class="item">Ice Latté <span>$16.000</span></div>
+    </div>
 
-  <!-- OTRAS BEBIDAS FRÍAS -->
-  <button class="accordion">Otras Bebidas Frías</button>
-  <div class="panel">
-    <div class="item">Jugo Natural <span>$8.000</span></div>
-    <div class="item">Limonada <span>$8.000</span></div>
-    <div class="item">Limonada de Hierbabuena <span>$8.000</span></div>
-    <div class="item">Limonada Frappe de Cereza <span>$8.000</span></div>
-    <div class="item">Frappe de Milo <span>$8.000</span></div>
-    <div class="item">Soda de Maracuyá <span>$9.000</span></div>
-    <div class="item">Soda de Cereza <span>$9.000</span></div>
-    <div class="item">Soda de Lichi con Bubbles <span>$10.000</span></div>
-    <div class="item">Soda de Uva <span>$14.000</span></div>
-  </div>
+    <button class="accordion">Otras Bebidas Frías</button>
+    <div class="panel">
+      <div class="item">Jugo Natural <span>$8.000</span></div>
+      <div class="item">Limonada <span>$8.000</span></div>
+      <div class="item">Limonada de Hierbabuena <span>$8.000</span></div>
+      <div class="item">Limonada Frappe de Cereza <span>$8.000</span></div>
+      <div class="item">Frappe de Milo <span>$8.000</span></div>
+      <div class="item">Soda de Maracuyá <span>$9.000</span></div>
+      <div class="item">Soda de Cereza <span>$9.000</span></div>
+      <div class="item">Soda de Lichi con Bubbles <span>$10.000</span></div>
+      <div class="item">Soda de Uva <span>$14.000</span></div>
+    </div>
 
-  <!-- TALLERES -->
-  <button class="accordion">Talleres</button>
-  <div class="panel">
-    <div class="item">Taller Introducción al Café Individual <span>$60.000</span></div>
-    <div class="item">Taller Tueste de Café <span>$80.000</span></div>
+    <button class="accordion">Talleres</button>
+    <div class="panel">
+      <div class="item">Taller Introducción al Café Individual <span>$60.000</span></div>
+      <div class="item">Taller Tueste de Café <span>$80.000</span></div>
+    </div>
   </div>
 </section>
 
@@ -653,23 +644,23 @@ if (typeof window.preciosCafe === 'undefined') {
   <!-- SCRIPT PARA HACER FUNCIONAR LOS DESPLEGABLES -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // Mostrar/Ocultar catálogo de cafés
+  // Catálogo de cafés
   const botonCatalogo = document.querySelector(".accordion-catalogo");
   const panelCatalogo = document.querySelector(".panel-catalogo");
-  botonCatalogo.addEventListener("click", function () {
+  botonCatalogo?.addEventListener("click", function () {
     this.classList.toggle("active");
     panelCatalogo.style.display = panelCatalogo.style.display === "block" ? "none" : "block";
   });
 
-  // Mostrar/Ocultar menú de cafetería
+  // Menú de cafetería
   const botonMenu = document.querySelector(".accordion-menu");
   const panelMenu = document.querySelector(".panel-menu");
-  botonMenu.addEventListener("click", function () {
+  botonMenu?.addEventListener("click", function () {
     this.classList.toggle("active");
     panelMenu.style.display = panelMenu.style.display === "block" ? "none" : "block";
   });
 
-  // Submenús internos (como Bebidas Calientes, Capuchinos...)
+  // Submenús del menú (internos)
   const botonesInternos = document.querySelectorAll(".accordion");
   botonesInternos.forEach(boton => {
     boton.addEventListener("click", function () {
@@ -679,7 +670,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // === Cotizador ===
+  // Cotizador
   if (typeof window.preciosCafe === 'undefined') {
     window.preciosCafe = {
       "Geisha - Popayán": { "250": 50000 },
@@ -739,8 +730,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("nota-envio").style.display = "block";
   };
 
-  agregarItem(); // Ejecuta uno al cargar
+  agregarItem(); // Primera fila al iniciar
 });
+</script>
 
 </body>
 </html>
